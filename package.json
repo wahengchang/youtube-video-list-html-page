@@ -5,6 +5,9 @@
   "repository": "git@github.com:wahengchang/youtube-video-list-html-page.git",
   "author": "wahengchang <wahengchang@gmail.com>",
   "license": "MIT",
+  "scripts": {
+      "test": "npm run start"
+  },
   "dependencies": {
     "axios": "^0.21.4",
     "body-parser": "^1.19.0",

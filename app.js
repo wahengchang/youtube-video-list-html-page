@@ -22,8 +22,6 @@
 
             // 2) parse it 
             const $ = cheerio.load(html); 
-            fs.writeFileSync('html', html)
-
 
             const parsedVideoList = html.match(/"(videoRenderer|videoId)":("([^""]+)"|\[[^[]+])/g);
             const resultRepeat = parsedVideoList.map(item => {
@@ -31,13 +29,9 @@
             }).map(item => {
                 return item.replace(`"`, '')
             })
-            const result = [...new Set(resultRepeat)]
-
-            // fs.writeFileSync('devtoList.json', parsedVideoList, 'utf8')
-        
+            const result = [...new Set(resultRepeat)]        
 
             // 3) deliver video list to html , to generate the UI
-            // const data = []
             const htmlWithVideoList = htmlTemplate.replace('{{VIDEO_LIST_DATA}}', JSON.stringify(result))
             return res.send(htmlWithVideoList)
         }

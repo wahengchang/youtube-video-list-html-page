@@ -21,6 +21,17 @@
     }
 
     </script>
+    <style>
+    .header {
+        background-color: gray;
+        padding: 50px;
+    }
+    .content {
+      margin: auto;
+      text-align: center;
+      padding: 50px;
+    }
+    </style>
   </head>
   <body onload="renderIFrame()">
     <div class='header'>

@@ -25,19 +25,20 @@
             fs.writeFileSync('html', html)
 
 
-            let videoList = [];
-            $('a#thumbnail').each(function(i, elem) {
-                videoList[i] = {
-                    id: elem
-                }      
-            });
-            const videoListTrim = videoList.filter(n => n != undefined )
-            fs.writeFileSync('devtoList.json', JSON.stringify(videoListTrim, null, 4))
+            const parsedVideoList = html.match(/"(videoRenderer|videoId)":("([^""]+)"|\[[^[]+])/g);
+            const resultRepeat = parsedVideoList.map(item => {
+                return item.replace(`"videoId":"`, '')
+            }).map(item => {
+                return item.replace(`"`, '')
+            })
+            const result = [...new Set(resultRepeat)]
+
+            // fs.writeFileSync('devtoList.json', parsedVideoList, 'utf8')
         
 
             // 3) deliver video list to html , to generate the UI
             // const data = []
-            // const htmlWithVideoList = htmlTemplate.replace('{{VIDEO_LIST_DATA}}', JSON.stringify(videoListTrim))
+            const htmlWithVideoList = htmlTemplate.replace('{{VIDEO_LIST_DATA}}', JSON.stringify(result))
             return res.send(htmlWithVideoList)
         }
         catch(e) {

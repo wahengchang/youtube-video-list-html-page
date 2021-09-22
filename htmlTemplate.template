@@ -3,9 +3,39 @@
     <title>The Coolest Vue - Axios Demo</title>
     <script>
     const videoList = {{VIDEO_LIST_DATA}}
+
+    const renderIFrame = () => {
+      for (i=1; i<=videoList.length; i++) {
+        const frame = document.createElement('iframe');
+        frame.src = "https://www.youtube.com/embed/" + videoList[i];
+        document.querySelector('.content').appendChild(frame)
+      }
+
+      document.getElementById('keywordInput').value = keywordFromUrl()
+    }
+
+    const keywordFromUrl = () => {
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const params = Object.fromEntries(urlSearchParams.entries());
+      return params.keyword || 'ronaldo'
+    }
+
     </script>
   </head>
-  <body>
-    Sample page
+  <body onload="renderIFrame()">
+    <div class='header'>
+      <form>
+        <div>
+          <label for="example">Let's submit some text</label>
+          <input id="keywordInput" type="keyword" name="keyword">
+        </div>
+        <div>
+          <input type="submit" value="Send">
+        </div>
+      </form>
+    </div>
+
+    <div class='content'>
+    <div>
   </body>
 </html>

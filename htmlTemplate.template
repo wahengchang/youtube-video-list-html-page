@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title>The Coolest Vue - Axios Demo</title>
+    <script>
+    const videoList = {{VIDEO_LIST_DATA}}
+    </script>
+  </head>
+  <body>
+    Sample page
+  </body>
+</html>

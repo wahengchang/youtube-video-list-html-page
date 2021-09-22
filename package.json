@@ -1,0 +1,17 @@
+{
+  "name": "youtube-video-list-html-page",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:wahengchang/youtube-video-list-html-page.git",
+  "author": "wahengchang <wahengchang@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

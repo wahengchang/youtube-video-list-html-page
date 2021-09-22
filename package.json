@@ -6,7 +6,7 @@
   "author": "wahengchang <wahengchang@gmail.com>",
   "license": "MIT",
   "scripts": {
-      "test": "npm run start"
+      "start": "npm run start"
   },
   "dependencies": {
     "axios": "^0.21.4",
